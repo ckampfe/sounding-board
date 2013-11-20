@@ -26,5 +26,5 @@ To run specs:
 For questions, contact: nathan@hadlock.co
 
 ## Resources:
-[Trello Plan](https://trello.com/b/RVQOheh6/sounding-board)
-[Site Wireframe](https://gomockingbird.com/mockingbird/#87swlcv)
+- [Trello Plan](https://trello.com/b/RVQOheh6/sounding-board)
+- [Site Wireframe](https://gomockingbird.com/mockingbird/#87swlcv)
