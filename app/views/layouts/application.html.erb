@@ -9,18 +9,24 @@
 <body>
   <div class = "nav_bar">
 
-
+    
     <% if session[:current_user_id] != nil %>
+      <li><a class='align-center title' href='/'>Sounding Board</a></li>
       <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
-      <%= f.submit "Logout" %>
+      <li><a><%= f.submit "Logout" %></a></li>
       <% end %>
     <% else %>
-      <%= link_to("Login", login_path) %>
-      <%= link_to("Sign Up", new_user_path) %>
+    <li><a class='align-center title' href='/'>Sounding Board</a></li>
+      <li><a class='align-right nav-link' <%= link_to("Login", login_path) %> ></a></li>
+     <li><a class='align-right nav-link'<%= link_to("Sign Up", new_user_path) %> ></a></li>
     <% end %>
 
 <%= yield %>
 
 
 </body>
+
+<div id="footer">
+  <section>© 2013 All Rights Reserved - TeamDelta.com</section>
+</div>
 </html>
