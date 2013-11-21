@@ -4,10 +4,10 @@ describe Comment do
   let(:user) { User.create(:name => "John Doe", :email => "john@doe.com", :password => "12345") }
 
   let(:post_params) { { :title => "New Post", :motivation => "Want to share", :user_id => user.id, :song_id => 1 } }
-  let(:post) { Post.create(post_params)}
+  let(:post) { Post.create(post_params) }
 
   let(:comment_params) { { :body => "Comment body is here.", :song_id => 1, :user_id => user.id, :post_id => post.id } }
-  let(:comment) {Comment.new(comment_params)}
+  let(:comment) { Comment.new(comment_params) }
 
   context "#initialize" do
     it "instantiates a comment" do
