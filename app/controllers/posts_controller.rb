@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     post_params = {
       :title => params[:post][:title],
       :motivation => params[:post][:motivation],
-      :user_id => current_user.id,
+      :user_id => params[:post][:user_id],
       :song_id => @song.id
     }
 
