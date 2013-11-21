@@ -1,33 +1,24 @@
 <div class="container">
 <h2> Share your latest favorites for others to hear</h2>
-<%#= form_for :get, :url => { :action => "search", controller} do |f| %>
-<%#= f.label :search %>
-<%#= f.text_field :search %> 
+<%= form_for :get, :url => { :action => "search"} do |f| %>
+<%= f.label :search %>
+<%= f.text_field :search %> 
 <br>
-<%#=f.submit "Search Posts"%>
-<% #end %>
+<%=f.submit "Search Posts"%>
+<% end %> 
 
 <h2> Search Posts</h2>
-<form id="cse-search-box" action="http://google.com/cse">
-  <input type="hidden" name="cx" value="YOUR SEARCH ENGINE ID goes here" />
-  <input type="hidden" name="ie" value="UTF-8" />
-  <input type="text" name="q" size="31" />
-  <input type="submit" name="sa" value="Search" />
-</form>
-<!-- <img src="http://www.google.com/cse/images/google_custom_search_smwide.gif"> -->
+
 <br>
 <br>
-<br>
-<div class="recent_log"> Most current posts
+<div class="recent_log"> 
+  <h4>Most Recent Posts </h4><br>
+  <%posts = Post.find(:all, :order => "id", :limit => 5).reverse %>
+  <% posts.each do |post| %>
+  <li> <%= post.title %> </li><br>
+  <% end %>
 </div>
 <h2> Search By Category</h2>
-<form id="cse-search-box" action="http://google.com/cse">
-  <input type="hidden" name="cx" value="YOUR SEARCH ENGINE ID goes here" />
-  <input type="hidden" name="ie" value="UTF-8" />
-  <input type="text" name="q" size="31" />
-  <input type="submit" name="sa" value="Search" />
-</form>
-
 
 
 </div>
