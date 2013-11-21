@@ -35,9 +35,8 @@ describe User do
 
     it "will not store a plaintext password" do
       user.save!
-      # Get a copy of user from the database to make sure that user object is up to date and has password_digest set
-      user_copy = User.find(user.id)
-      user_copy.password_digest.should_not eq "12345"
+      user.reload
+      user.password_digest.should_not == "12345"
     end
   end
 
