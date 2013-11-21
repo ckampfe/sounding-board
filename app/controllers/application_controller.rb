@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+
+  def index
+  end
+
   private
   def current_user
     @current_user ||= session[:current_user_id] &&
       User.find_by(id: session[:current_user_id])
   end
 
-  def current_user=(user)
+  def current_user_assign(user)
     session[:current_user_id] = user.id
   end
 

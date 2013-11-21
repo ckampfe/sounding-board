@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.find_or_create_by_email(params[:user])
 
-    current_user = @user.id
+    current_user_assign(@user)
 
     redirect_to "/"
   end
@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     @user = User.find_by_email(params[:user][:email])
 
     if @user
+      if @user.authenticate(params[:user][:password])
+        current_user_assign(@user)
 
-      if user.authenticate(params[:user][:password])
-        current_user = @user.id
         redirect_to "/"
       end
 
