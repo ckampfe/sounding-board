@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Your Posts</h2><br>
+
+  <% @my_posts.each do |post| %>
+    <%= link_to post.title, post %><br>
+  <% end %>
+
+</div>
