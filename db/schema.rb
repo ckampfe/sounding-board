@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20131120210331) do
   end
 
   create_table "songs", :force => true do |t|
-    t.string   "short_url"
-    t.string   "title"
+    t.string   "short_url",  :null => false
+    t.string   "title",      :null => false
     t.string   "artist"
     t.string   "album"
     t.integer  "year"
