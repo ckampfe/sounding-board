@@ -2,7 +2,7 @@
   <h1>Souding Board</h1>
   <h3>Share a song</h3>
 
-  <%= form_for :post do |f| %>
+  <%= form_for :post, :url => { :action => "create" } do |f| %>
     <%= f.label :title %>:
     <%= f.text_field :title %> *
     <br>
@@ -10,7 +10,7 @@
     <%= f.text_field :motivation %>
     <br>
     <%= f.label :song_name %>:
-    <%= f.text_field :song_description%> *
+    <%= f.text_field :song__id%> *
     <br>
     <%= f.submit "Create Post" %>
   <% end %>
