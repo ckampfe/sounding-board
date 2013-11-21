@@ -30,7 +30,7 @@ users_length = User.all.count
   post = Post.create!(
                :title         => Faker::Lorem.words(3),
                :motivation    => Faker::Lorem.words(7),
-               :user_id       => rand(users_length),
+               :user_id       => rand(users_length) + 1,
                :song_id       => song_id
               )
 
@@ -40,17 +40,17 @@ users_length = User.all.count
 
   comments_number.times do
     comment = Comment.create!(
-                    :user_id => rand(users_length),
-                    :body    => Faker::Lorem.words(10),
-                    :song_id => song_id,
-                    :post_id => post_id
-                   )
+                              :user_id => rand(users_length) + 1,
+                              :body    => Faker::Lorem.words(10),
+                              :song_id => song_id,
+                              :post_id => post_id
+                             )
 
     comment_id = comment.id
 
-    rand(users_length * 2).times do
+    (rand((users_length) + 1) * 2).times do
       CommentVote.create!(
-                          :user_id => rand(users_length),
+                          :user_id    => rand(users_length) + 1,
                           :comment_id => comment_id,
                           :is_up_vote => rand(2) > 0 ? true : false
                          )
