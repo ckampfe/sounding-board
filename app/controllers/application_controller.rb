@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
   include ControllerHelper
 
-
   def index
   end
-
-  
-
 end
