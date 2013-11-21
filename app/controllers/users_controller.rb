@@ -11,6 +11,24 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
+  def create_login
+    @user = User.find_by_email(params[:user][:email])
+
+    if @user
+
+      if user.authenticate(params[:user][:password])
+        current_user = @user.id
+        redirect_to "/"
+      end
+
+    else
+      redirect_to :action => 'login'
+    end
+  end
+
+  def login
+  end
+
   def index
 
   end
