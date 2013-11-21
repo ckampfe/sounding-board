@@ -73,8 +73,7 @@ class PostsController < ApplicationController
   end
 
   def search # find posts
-    #@query = params[:post][:search]
-    @query = 'et'
+    @query = params[:search]
     query_ar = "%#{@query}%"
     @posts = Post.where("title like ? or motivation like ?", query_ar, query_ar)
     render :results
