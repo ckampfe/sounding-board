@@ -33,6 +33,11 @@ class UsersController < ApplicationController
 
   end
 
+  def logout
+    logout_user
+    redirect_to "/"
+  end
+
   def show
 
   end

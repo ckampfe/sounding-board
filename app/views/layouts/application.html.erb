@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class = "nav_bar">
+    <%= form_for :user, :url => {:action => "logout"} do |f| %>
+    <%= f.submit "Logout" %>
+  <% end %>
 
 <%= yield %>
+
 
 </body>
 </html>
