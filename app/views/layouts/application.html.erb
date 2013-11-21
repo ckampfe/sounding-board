@@ -8,9 +8,16 @@
 </head>
 <body>
   <div class = "nav_bar">
-    <%= form_for :user, :url => {:action => "logout"} do |f| %>
-    <%= f.submit "Logout" %>
-  <% end %>
+
+
+    <% if session[:current_user_id] != nil %>
+      <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
+      <%= f.submit "Logout" %>
+      <% end %>
+    <% else %>
+      <%= link_to("Login", login_path) %>
+      <%= link_to("Sign Up", new_user_path) %>
+    <% end %>
 
 <%= yield %>
 

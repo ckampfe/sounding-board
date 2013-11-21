@@ -6,5 +6,5 @@ SoundingBoard::Application.routes.draw do
 
   post '/logout' => 'users#logout'
 
-  root to: "users#index"
+  root to: "application#index"
 end
