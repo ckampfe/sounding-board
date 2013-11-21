@@ -40,6 +40,19 @@ describe User do
     end
   end
 
+  context "#posts_commented_on" do
+    it "will return all posts this user has commented on" do
+      user.save!
+      user_2 = User.create!(:name => "Other User", :email => "other@user.com", :password => "123")
+      test_post = user_2.posts.create!(:title => "Commented on test post", :motivation => "Test posts_commented_on post", :song_id => 1)
+
+      test_post.comments.create!(:body => "This should be the only result", :post_id => test_post.id, :user_id => user.id)
+
+      user.posts_commented_on.should eq [test_post]
+    end
+
+  end
+
   it { should allow_mass_assignment_of(:password) }
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:email) }
