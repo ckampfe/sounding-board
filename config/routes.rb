@@ -3,16 +3,24 @@ SoundingBoard::Application.routes.draw do
   resources :posts do
     collection do
       get 'search'
+      get 'refresh'
     end
+
+    resources :comments, :only => [:create]
   end
+
+  resources :comments, :except => [:create]
 
   get '/login'   => 'users#login'
   post '/login'  => 'users#create_login'
   post '/logout' => 'users#logout'
 
   get '/my_posts' => 'my_posts#index'
-  get '/posts/new' => 'posts#create'
-  
+
+  get '/posts/new' => 'posts#create' # HUH? WHAT IS THIS?
+
+  post '/comments/:id/upvote' => "comments#upvote"
+  post '/comments/:id/downvote' => "comments#downvote"
 
   root to: "application#index"
 end

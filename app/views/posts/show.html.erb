@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Sounding Board</h1>
+
+  <div class="post_display_section">
+    <%= render :partial => "show_post", :layout => false %>
+  </div>
+
+  <div class="comment_entry_section">
+    <%= form_for [@post, @post.comments.build] do |f|%>
+      <%= f.label "Comment" %>: <br>
+      <%= f.text_area :body %><br>
+
+      <%= f.label "Song" %>:
+      <%= f.text_field :song %>
+
+      <%= f.submit %>
+
+    <% end %>
+  </div>
+
+</div>

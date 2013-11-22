@@ -1,0 +1,34 @@
+
+    <h3><%= @post.title %></h3>
+
+    <h4><%= @song.title %></h4>
+
+    <p><strong><%= @post.motivation if @post.motivation %></strong></p>
+    <br>
+    <p><strong>PUT EMBEDDED PLAYER HERE</strong></p>
+    <br>
+
+    <div class="comment_display_section">
+      <% @comments.each do |comment| %>
+        <p>Author: <%= comment.user.name %></p>
+        <p><%= "Comment: #{comment.body}" if comment.body %></p>
+        <p><%= "Recommends: #{comment.song.title}" if comment.song %></p>
+        <p>song title should be a link/player when Rdio integrated</p>
+
+        <% upvotes = comment.comment_votes.select { |vote| vote.is_up_vote }.length %>
+        <% downvotes = comment.comment_votes.select { |vote| !vote.is_up_vote }.length %>
+
+        <p>Votes: <%= "+: #{upvotes} / -: #{downvotes}" %>
+          <%= link_to(
+            "Upvote",
+            "/comments/#{comment.id}/upvote",
+             :method => "post"
+          ) %>
+          <%= link_to(
+            "Downvote",
+            "/comments/#{comment.id}/downvote",
+            :method => "post"
+          ) %>
+        </p><br>
+      <% end %>
+    </div>
