@@ -5,7 +5,11 @@ SoundingBoard::Application.routes.draw do
       get 'search'
       get 'refresh'
     end
+
+    resources :comments, :only => [:create]
   end
+
+  resources :comments, :except => [:create]
 
   get '/login'   => 'users#login'
   post '/login'  => 'users#create_login'
