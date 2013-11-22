@@ -11,6 +11,8 @@ SoundingBoard::Application.routes.draw do
   post '/logout' => 'users#logout'
 
   get '/my_posts' => 'my_posts#index'
+  get '/posts/new' => 'posts#create'
+  
 
   root to: "application#index"
 end
