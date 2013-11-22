@@ -1,26 +1,39 @@
 <div class="container">
-<h2> Share your latest favorites for others to hear</h2>
-<%= form_for :post, :url => { :action => "search", :controller => 'posts'}, :html => { :method => "get" } do |f| %>
-<%= f.label :search %>
-<%= f.text_field :search %> 
-<br>
-<%=f.submit "Search Posts"%>
-<% end %> 
 
-<h2> Search Posts</h2>
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Share your latest favorites for others to hear</h1>
+            </div>
+          </div>
+        </div>
 
-<br>
-<br>
-<h4>Latest Post Feed:</h4>
-<div class="recent_log"> 
-  
-  <%posts = Post.find(:all, :order => "id", :limit => 5).reverse %>
-  <% posts.each do |post| %>
-  <li> <%= post.title %> </li><br>
-  <% end %>
+        <%= form_for :post, :url => { :action => "search", :controller => 'posts'}, :html => { :method => "get" } do |f| %>
+        <%= f.label :search %>
+        <%= f.text_field :search %>
+
+        <%=f.submit "Search Posts"%>
+        <% end %>
+
+  <h2> Search Posts</h2>
+
+  <br>
+  <br>
+  <h4>Latest Post Feed:</h4>
+  <div class="recent_log">
+
+    <%posts = Post.find(:all, :order => "id", :limit => 5).reverse %>
+    <% posts.each do |post| %>
+    <li> <%= post.title %> </li><br>
+    <% end %>
+  </div>
+  <h2> Search By Category</h2>
+
+
 </div>
-<h2> Search By Category</h2>
 
 
-</div>
+
+
 
