@@ -7,20 +7,83 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class = "nav_bar">
+  <div class="container
+  "
+  <div class="bs-docs-section clearfix">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="navbar">Sounding Board</h1>
+            </div>
+            <div class="bs-example">
+              <div class="navbar navbar-default">
 
-    
-    <% if session[:current_user_id] != nil %>
-      <li><a class='align-center title' href='/'>Sounding Board</a></li>
-      <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
-      <li><a><%= f.submit "Logout" %></a></li>
-      <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
-      <% end %>
-    <% else %>
-    <li><a class='align-center title' href='/'>Sounding Board</a></li>
-      <li><a class='align-right nav-link' <%= link_to("Login", login_path) %> ></a></li>
-     <li><a class='align-right nav-link'<%= link_to("Sign Up", new_user_path) %> ></a></li>
-    <% end %>
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Brand/Logo</a>
+                </div>
+
+
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                  <ul class="nav navbar-nav">
+                   <!--  <li class="active"><a href="#">Active</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Dropdown header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li> -->
+                      <!-- </ul> -->
+                    <!-- </li> -->
+                  </ul>
+
+                 <!--  <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form> -->
+
+              <ul class="nav navbar-nav navbar-right">
+
+                  <% if session[:current_user_id] != nil %>
+                   <li><a class='align-center title' href='/'>SB Home</a></li>
+
+                    <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
+                     <li><a><%= f.submit "Logout" %></a></li>
+                     <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
+                    <% end %>
+
+                  <% else %>
+
+                   <li><a href='/'>Sounding Board</a></li>
+                   <li><a  <%= link_to("Login", login_path) %> ></a></li>
+                   <li><a <%= link_to("Sign Up", new_user_path) %> ></a></li>
+                    <% end %>
+
+                    <!-- <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li> -->
+                </ul><!-- end of class="nav navbar-nav navbar-right"   -->
+                </div><!-- /.nav-collapse -->
+              </div><!-- /.navbar -->
+
+
+
+
 
 <%= yield %>
 
