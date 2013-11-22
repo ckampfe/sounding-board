@@ -40,4 +40,10 @@ describe PostsController do
     end
   end
 
+  describe "#search" do
+    it "renders results for 'et'" do
+      get :search, :post => { :search => "et" }
+      expect(response.body).to include("Posts containing et")
+    end
+  end
 end
