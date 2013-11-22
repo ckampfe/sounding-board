@@ -72,6 +72,14 @@ class PostsController < ApplicationController
 
   end
 
+  def refresh
+    puts "refresh"
+    @posts = Post.last(5).reverse
+    if request.xhr?
+      render :_latest_posts, :layout => nil
+    end
+  end
+
   def search # find posts
     @query = params[:search]
     query_ar = "%#{@query}%"
