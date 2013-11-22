@@ -28,6 +28,7 @@
   width: 300px;
   padding: 20px 0px 20px 20px;
   border: 1px solid gray;
+  margin-left: 10px;
   }
 
 
@@ -46,7 +47,7 @@
 }
 
 .nav_bar a {
-  color: white;
+  color: blue;
   text-decoration: none;
   font-family: Tahoma;
 }
