@@ -1,16 +1,48 @@
 <div class="container">
 
-  <%= form_for :user, :url => { :action => "create" } do |f|%>
-    <%= f.label :name %>:
-    <%= f.text_field :name %><br>
+         <div class="row">
+          <div class="col-lg-6">
+            <div class="well">
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>Sign Up</legend>
 
-    <%= f.label :email %>:
-    <%= f.text_field :email %><br>
+                  <%= form_for :user, :url => { :action => "create" }, html: {class: "form-group"} do |f|%>
 
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br>
+                  <div class="form-group">
+                    <%= f.label :name, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.text_field :name, :input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
 
-    <%= f.submit "Sign Up!" %>
-  <% end %>
+                  <div class="form-group">
+                    <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.text_field :email, :input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.password_field :password, :input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <%= f.submit "Sign Up!", :class => "btn btn-primary" %>
+                    </div>
+                  </div>
+
+                <% end %>
+
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+
 
 </div>
