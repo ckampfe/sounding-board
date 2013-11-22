@@ -57,6 +57,12 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    # @song = @post.song # NYI because song requires Rdio to be setup first
+    # FAKING A SONG
+    @song = get_song_from_rdio("FAKE!!!")
+    @song.save
 
   end
 
@@ -70,6 +76,14 @@ class PostsController < ApplicationController
 
   def destroy
 
+  end
+
+  def refresh
+    puts "refresh"
+    @posts = Post.last(5).reverse
+    if request.xhr?
+      render :_latest_posts, :layout => nil
+    end
   end
 
   def search # find posts

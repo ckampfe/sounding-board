@@ -15,6 +15,7 @@
       <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
       <li><a><%= f.submit "Logout" %></a></li>
       <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
+      <li><a class='align-right nav-link' <%= link_to("My Post", my_posts_path) %> ></a></li>
       <% end %>
     <% else %>
     <li><a class='align-center title' href='/'>Sounding Board</a></li>
