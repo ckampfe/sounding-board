@@ -7,15 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
   #FAKE FOR NOW
-  def get_song_from_rdio(search_term)
-    @song = Song.new(
-        :title => "This is a faked song",
-        :short_url => "http://www.google.com",
-        :artist => "Faked artist",
-        :album => "Faked Album",
-        :year => 1000
-      )
-  end
+  # def get_song_from_rdio(search_term)
+  #   @song = Song.new(
+  #       :title => "This is a faked song",
+  #       :short_url => "http://www.google.com",
+  #       :artist => "Faked artist",
+  #       :album => "Faked Album",
+  #       :year => 1000
+  #     )
+  # end
 
   def rdio_client
     client ||= OAuth::Consumer.new(
@@ -27,6 +27,18 @@ class ApplicationController < ActionController::Base
   end
 
   def rdio_search(search_term)
-    rdio_client.
+    search_results_json = rdio_client.request(
+        :post,
+        '/1/search',
+        nil,
+        {},
+        "method=search&query=#{search_term}&types=Track",
+        {
+          'Content-Type' => 'application/x-www-form-urlencoded'
+      })
+
+    search_results = JSON.parse(search_results_json.body)["result"]["results"]
+
+    search_results
   end
 end
