@@ -4,7 +4,11 @@ SoundingBoard::Application.routes.draw do
     collection do
       get 'search'
     end
+
+    resources :comments, :only => [:create]
   end
+
+  resources :comments, :except => [:create]
 
   get '/login'   => 'users#login'
   post '/login'  => 'users#create_login'
