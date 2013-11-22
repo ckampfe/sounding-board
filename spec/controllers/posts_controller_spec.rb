@@ -27,4 +27,17 @@ describe PostsController do
       }.to change(Post, :count).by(1)
     end
   end
+
+  describe "GET show" do
+    let(:user) { User.create!(:name => "Me", :email => "me123@youabc.com", :password => "123") }
+    let(:new_post) { Post.create!(:title => "Test Post for GET show", :motivation => "Test Post Body", :user_id => user.id, :song_id => 1) }
+
+    it "should render the correct post" do
+      session[:current_user_id] = user.id
+
+      get :show, :id => new_post.id
+      expect(response.body).to include("#{new_post.title}")
+    end
+  end
+
 end
