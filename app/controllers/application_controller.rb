@@ -16,4 +16,17 @@ class ApplicationController < ActionController::Base
         :year => 1000
       )
   end
+
+  def rdio_client
+    client ||= OAuth::Consumer.new(
+        ENV["RDIO_CONSUMER_KEY"],
+        ENV["RDIO_CONSUMER_SECRET"],
+        :site => "http://api.rdio.com",
+        :scheme => :header
+      )
+  end
+
+  def rdio_search(search_term)
+    rdio_client.
+  end
 end
