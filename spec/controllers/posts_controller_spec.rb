@@ -17,7 +17,11 @@ describe PostsController do
   end
 
   describe "POST create" do
+    let(:user) { User.create!(:name => "Me", :email => "me123@youabc.com", :password => "123") }
+
     it "should add a new post to the database" do
+      session[:current_user_id] = user.id
+
       expect{
         post :create, :post => post_params
       }.to change(Post, :count).by(1)
