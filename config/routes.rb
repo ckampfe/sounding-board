@@ -14,5 +14,8 @@ SoundingBoard::Application.routes.draw do
   get '/my_posts' => 'my_posts#index'
   get '/posts/new' => 'posts#create'
 
+  post '/comments/:id/upvote' => "comments#upvote"
+  post '/comments/:id/downvote' => "comments#downvote"
+
   root to: "application#index"
 end
