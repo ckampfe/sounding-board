@@ -57,6 +57,17 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    # @song = @post.song # NYI because song requires Rdio to be setup first
+    # FAKING A SONG
+    @song = Song.find_or_create_by_title(
+        :title => "This is a faked song",
+        :short_url => "http://www.google.com",
+        :artist => "Faked artist",
+        :album => "Faked Album",
+        :year => 1000
+      )
 
   end
 
