@@ -1,14 +1,38 @@
 <div class="container">
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="well">
+      <form class="bs-example form-horizontal">
+        <fieldset>
+          <legend>Login</legend>
 
-  <%= form_for :user, :url => { :action => "login" } do |f|%>
+          <%= form_for :user, :url => { :action => "login" }, html: {class: "form-group"} do |f|%>
 
-    <%= f.label :email %>:
-    <%= f.text_field :email %><br>
+            <div class="form-group">
+              <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
+              <div class="col-lg-10">
+              <%= f.text_field :email, :input_html => { :class => "form-control"} %>
+              </div>
+            </div>
 
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br>
+            <div class="form-group">
+              <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
+              <div class="col-lg-10">
+              <%= f.password_field :password, :input_html => { :class => "form-control"} %>
+              </div>
+            </div>
 
-    <%= f.submit "Login" %>
-  <% end %>
+            <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit "Login", :class => "btn btn-primary" %>
+              </div>
+            </div>
 
+            <% end %>
+
+        </fieldset>
+      </form>
+
+    </div>
+  </div>
 </div>
