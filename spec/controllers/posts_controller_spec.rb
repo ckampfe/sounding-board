@@ -27,4 +27,11 @@ describe PostsController do
       }.to change(Post, :count).by(1)
     end
   end
+
+  describe "#search" do
+    it "renders results for 'et'" do
+      get :search, :post => { :search => "et" }
+      expect(response.body).to include("Posts containing et")
+    end
+  end
 end
