@@ -5,7 +5,7 @@
 
     <p><strong><%= @post.motivation if @post.motivation %></strong></p>
     <br>
-    <p><strong>PUT EMBEDDED PLAYER HERE</strong></p>
+    <div id="#post_song_embed"><embed src ="<%= @song.short_url %>"></div>
     <br>
 
     <div class="comment_display_section">
@@ -14,6 +14,7 @@
         <p><%= "Comment: #{comment.body}" if comment.body %></p>
         <p><%= "Recommends: #{comment.song.title}" if comment.song %></p>
         <p>song title should be a link/player when Rdio integrated</p>
+        <embed src="<%= comment.song.short_url %>">
 
         <% upvotes = comment.comment_votes.select { |vote| vote.is_up_vote }.length %>
         <% downvotes = comment.comment_votes.select { |vote| !vote.is_up_vote }.length %>
