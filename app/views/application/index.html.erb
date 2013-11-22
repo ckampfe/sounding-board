@@ -1,3 +1,18 @@
+<html>
+<head>  
+  <script type="text/javascript">  
+      $(document).ready(function() {
+        var pingAfter = 2000;  
+        var refreshId = setInterval(function() {
+
+            $.get('/posts/refresh', function(response) {
+              $("#recent_log").html(response);
+            });
+        }, pingAfter);
+    });
+  </script>  
+</head>  
+
 <div class="container">
 <h2> Share your latest favorites for others to hear</h2>
 <%= form_for :post, :url => { :action => "search", :controller => 'posts'}, :html => { :method => "get" } do |f| %>
@@ -12,15 +27,14 @@
 <br>
 <br>
 <h4>Latest Post Feed:</h4>
-<div class="recent_log"> 
+
+<div id="recent_log"> 
   
-  <%posts = Post.find(:all, :order => "id", :limit => 5).reverse %>
-  <% posts.each do |post| %>
-  <li> <%= post.title %> </li><br>
-  <% end %>
 </div>
 <h2> Search By Category</h2>
 
 
 </div>
+
+</html>
 

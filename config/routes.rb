@@ -3,6 +3,7 @@ SoundingBoard::Application.routes.draw do
   resources :posts do
     collection do
       get 'search'
+      get 'refresh'
     end
   end
 
@@ -12,7 +13,6 @@ SoundingBoard::Application.routes.draw do
 
   get '/my_posts' => 'my_posts#index'
   get '/posts/new' => 'posts#create'
-  
 
   root to: "application#index"
 end
