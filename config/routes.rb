@@ -16,7 +16,8 @@ SoundingBoard::Application.routes.draw do
   post '/logout' => 'users#logout'
 
   get '/my_posts' => 'my_posts#index'
-  get '/posts/new' => 'posts#create'
+  get '/posts/new' => 'posts#create' # HUH? WHAT IS THIS?
+
 
   post '/comments/:id/upvote' => "comments#upvote"
   post '/comments/:id/downvote' => "comments#downvote"
