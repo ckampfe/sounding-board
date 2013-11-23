@@ -10,26 +10,27 @@ class PostsController < ApplicationController
 
     # rdio_song = nil # Will be the song object from Rdio
 
-    # song_params = {
-    #   :short_url => rdio_song.short_url,
-    #   :title => rdio_song.title,
-    #   :artist => rdio_song.artist,
-    #   :album => rdio_song.album,
-    #   :year => rdio_song.year
-    # }
+    song_params = {
+      :short_url => params[:song_embed_url],
+      :title => params[:song_title],
+      :artist => params[:song_artist],
+      :album => params[:song_album]
+    }
 
-    # @song = Song.new(song_params)
+    @song = Song.create!(song_params)
 
-    @song = Song.create(
-      :short_url => "http://www.google.com",
-      :title => "Fake Song Title",
-      )
+    # params[:song_id]
+
+    # @song = Song.create(
+    #   :short_url => "http://www.google.com",
+    #   :title => "Fake Song Title",
+    #   )
 
 
 
     post_params = {
-      :title => params[:post][:title],
-      :motivation => params[:post][:motivation],
+      :title => params[:post_title],
+      :motivation => params[:post_motivation],
       :user_id => current_user.id,
       :song_id => @song.id
     }
@@ -46,7 +47,7 @@ class PostsController < ApplicationController
 
     if @post.save
       # May need to save user and song here
-      redirect_to "/"
+      redirect_to post_path(@post)
     else
       puts "FAILED TO SAVE!!!" #Replace this and handle failed save here.
     end
@@ -59,11 +60,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
-    # @song = @post.song # NYI because song requires Rdio to be setup first
-    # FAKING A SONG
-    @song = get_song_from_rdio("FAKE!!!")
-    @song.save
-
+    @song = @post.song
   end
 
   def edit
