@@ -20,7 +20,7 @@ describe SongsController do
       # THIS WILL FAIL BECAUSE THIS FEATURE IS NYI FOR POSTS
       it "renders a 'Cannot post without a valid song' page if given no search term" do
         get :search, :post => {:title => "Test Post", :motivation => "Test Post Motive"}
-        expect(response.body).to include("No songs were found that matched your search criteria. Try a different search term.")
+        expect(response.body).to include("No songs were found that matched your search criteria. Try a different")
       end
   end
 
