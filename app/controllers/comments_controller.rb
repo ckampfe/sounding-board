@@ -1,18 +1,24 @@
 class CommentsController < ApplicationController
 
   def create
-   song_params = {
-      :short_url => params[:song_embed_url],
-      :title => params[:song_title],
-      :artist => params[:song_artist],
-      :album => params[:song_album]
-    }
-    @song = Song.create!(song_params) if params[:song_embed_url]
+  if params[:song_embed_url]
+     song_params = {
+        :short_url => params[:song_embed_url],
+        :title => params[:song_title],
+        :artist => params[:song_artist],
+        :album => params[:song_album]
+      }
+
+      @song = Song.create!(song_params)
+    end
+
+    song_id_or_nil = @song.id if @song
+
     @post = Post.find(params[:post_id])
 
     comment_params = {
       :body => params[:comment_body],
-      :song_id => @song.id if @song,
+      :song_id => song_id_or_nil,
       :user_id => current_user.id
     }
 
