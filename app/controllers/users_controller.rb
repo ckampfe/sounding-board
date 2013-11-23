@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    p '-----in create area--------'
     @user = User.find_or_create_by_email(params[:user])
     if @user.valid?
       current_user_assign(@user)
       redirect_to "/"
     else
+      p '--------redirecting back to page--------'
       redirect_to "/users/new"
     end
 
