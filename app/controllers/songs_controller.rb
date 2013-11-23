@@ -40,12 +40,11 @@ class SongsController < ApplicationController
         )
       @songs << @song
     end
-    if @songs.empty?
 
-    else
+    # if @songs.empty?
+
+    # else
       render "rdio_search_results_for_comments", :locals => { :comment_data => params[:comment], :post_id => params[:post_id] }
-    end
-
+    # end
   end
-
 end
