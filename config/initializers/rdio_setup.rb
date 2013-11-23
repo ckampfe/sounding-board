@@ -1,10 +1,12 @@
-CONFIG = Pathname.new(File.expand_path('../..', __FILE__))
+if Rails.development?
+  CONFIG = Pathname.new(File.expand_path('../..', __FILE__))
 
 
-env_config = YAML.load_file(CONFIG.join('', 'rdio.yml'))
+  env_config = YAML.load_file(CONFIG.join('', 'rdio.yml'))
 
-env_config.each do |key, value|
-  ENV[key] = value
+  env_config.each do |key, value|
+    ENV[key] = value
+  end
 end
 
 # ENV['RDIO_OAUTH_CONSUMER'] = OAuth::Consumer.new(ENV["RDIO_CONSUMER_KEY"], ENV["RDIO_CONSUMER_SECRET"], :site => "http://api.rdio.com", :scheme => :header)
