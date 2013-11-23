@@ -1,6 +1,8 @@
 # Sounding Board
 ================
 
+[![Build Status](https://travis-ci.org/ckampfe/sounding-board.png?branch=master)](https://travis-ci.org/ckampfe/sounding-board)
+
 To Start, run:
 - bundle install
 - rake db:create
@@ -8,7 +10,7 @@ To Start, run:
 - rails server
 
 To run specs:
-- Not Yet Implemented
+- Run 'rake spec'
 
 ## Dependencies
 - Uses RSpec for testing
