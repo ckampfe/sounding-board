@@ -4,11 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.find_or_create_by_email(params[:user])
+    if @user.valid?
+      current_user_assign(@user)
+      redirect_to "/"
+    else
+      redirect_to "/users/new"
+    end
 
-    current_user_assign(@user)
-
-    redirect_to "/"
   end
 
   def create_login
