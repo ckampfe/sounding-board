@@ -17,7 +17,13 @@ To run specs:
 - Using PostgresSQL for database backing
 - Using Rails Version: 3.2.15
 - Using Ruby Version: 1.9.3
+- Requires '/config/rdio.yml' to operate
 
+## rdio.yml Structure
+```ruby
+RDIO_CONSUMER_KEY: your key
+RDIO_CONSUMER_SECRET: your secret 
+```
 
 ## Contributors:
 - Kent Carmine
