@@ -1,19 +1,47 @@
 <div class="container">
 
-  <%= form_for :user, :url => { :action => "create" } do |f|%>
-    <%= f.label :name %>:
-    <%= f.text_field :name, :required => true%>
-    <br>
 
-    <%= f.label :email %>:
-    <%= f.email_field :email, :required => true  %>
-    <br>
+         <div class="row">
+          <div class="col-lg-6">
+            <div class="well">
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>Sign Up</legend>
 
-    <%= f.label :password %>:
-    <%= f.password_field :password, :required => true %>
-    <br>
+                  <%= form_for :user, :url => { :action => "create" }, html: {class: "form-group"} do |f|%>
 
-    <%= f.submit "Sign Up!", :id=> "signup" %>
-  <% end %>
+                  <div class="form-group">
+                    <%= f.label :name, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.text_field :name,:required => true, :input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
 
+                  <div class="form-group">
+                    <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.text_field :email, :required => true,:input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <div class="col-lg-10">
+                    <%= f.password_field :password, :required => true,:input_html => { :class => "form-control"} %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <%= f.submit "Sign Up!", :class => "btn btn-primary" %>
+                    </div>
+                  </div>
+
+                <% end %>
+
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
 </div>
