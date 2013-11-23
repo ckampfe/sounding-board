@@ -8,26 +8,26 @@
                 <fieldset>
                   <legend>Sign Up</legend>
 
-                  <%= form_for :user, :url => { :action => "create" }, html: {class: "form-group"} do |f|%>
+                  <%= form_for :user, :url => { :action => "create" }, html: { class: "form-group"} do |f| %>
 
                   <div class="form-group">
-                    <%= f.label :name, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <%= f.label :name, :input_html => { :class => "col-lg-2 control-label" } %>
                     <div class="col-lg-10">
-                    <%= f.text_field :name,:required => true, :input_html => { :class => "form-control"} %>
+                    <%= f.text_field :name, :required => true, :input_html => { :class => "form-control" } %>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <%= f.label :email, :input_html => { :class => "col-lg-2 control-label" } %>
                     <div class="col-lg-10">
-                    <%= f.text_field :email, :required => true,:input_html => { :class => "form-control"} %>
+                    <%= f.text_field :email, :required => true, :input_html => { :class => "form-control" } %>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
+                    <%= f.label :password, :input_html => { :class => "col-lg-2 control-label" } %>
                     <div class="col-lg-10">
-                    <%= f.password_field :password, :required => true,:input_html => { :class => "form-control"} %>
+                    <%= f.password_field :password, :required => true,:input_html => { :class => "form-control" } %>
                     </div>
                   </div>
 
