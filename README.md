@@ -20,8 +20,10 @@ To run specs:
 - Requires '/config/rdio.yml' to operate
 
 ## rdio.yml Structure
+```ruby
 RDIO_CONSUMER_KEY: your key
-RDIO_CONSUMER_SECRET: your secret 
+RDIO_CONSUMER_SECRET: your secret
+```
 
 
 ## Contributors:
