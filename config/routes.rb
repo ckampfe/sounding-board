@@ -24,6 +24,7 @@ SoundingBoard::Application.routes.draw do
   post '/comments/:id/downvote' => "comments#downvote"
 
   get '/songs/search' => "songs#search"
+  get '/songs/search_for_use_by_comment' => "songs#search_for_use_by_comment"
   get '/songs/display_search_results' => "songs#display_search_results"
 
   root to: "application#index"
