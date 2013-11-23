@@ -1,0 +1,50 @@
+Talk about tools that rails gives us
+
+helpers, history of how it's doing what it does
+
+revisit the blog application that was
+
+Let's start with ajaxifying a delete button.
+
+Rails provides us with tools. There are ajax helpers. There's a good refernce on edgeguides.rubyonraiils.org/working with javasctipt_in_rails.html.
+
+add into a form_for, :remote => true
+add require jquery and jquery_ujs to the manifest
+
+//=require jquery
+//=require jquery_ujs
+
+$(function() {
+  $("form[data-remote=true]").on(ajax:sucess", funtion(e) {
+  var listItem = $(e.target).closest("li");
+  listItem
+  })
+
+}
+
+
+*********now need to custom tailor our controller to handle the return in the post controller
+
+rails gives us the ability to handle the kind of request
+
+def destroy
+  @post.destroy
+  respond_to do |format|
+    format.js do
+      render nothing: true
+    end
+    format.any do
+    redirect_to posts_path
+    end
+  end
+end
+
+**************************
+
+sweet little rails short cut for a button
+
+<%= button_to "Delete Post", post, :method => :delete, :remote => true %>
+
+***********
+
+really want a link for a delete, can only do that with javascript, and so just change button_to to link_to

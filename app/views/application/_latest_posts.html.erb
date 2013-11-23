@@ -1,6 +1,7 @@
-<html>
+
 <%posts = Post.last(5).reverse%>
   <% posts.each do |post| %>
-  <li> <%= link_to(post.title, post) %>  </li><br>
-<% end %>
-</html>
+     <%= link_to(post.title, post, html_options = {:class => "list-group-item"})%>
+  <% end %>
+
+
