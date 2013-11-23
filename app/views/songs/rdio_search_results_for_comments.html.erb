@@ -1,0 +1,16 @@
+<div class="rdio_search_results">
+  <h3>Search Results</h3>
+  <% @songs.each do |song| %>
+
+      <%= form_for :comment, :url => "/posts/#{post_id}/comments", :action => "create", :method => "post" do |f| %>
+      <input type="hidden" value="<%= comment_data[:body] %>" name="comment_body">
+      <input type="hidden" value="<%= song[:title] %>" name="song_title">
+      <input type="hidden" value="<%= song[:short_url] %>" name="song_embed_url">
+      <input type="hidden" value="<%= song[:artist] %>" name="song_artist">
+      <input type="hidden" value="<%= song[:album] %>" name="song_album">
+      <input type="hidden" value="<%= post_id %>" name="post_id">
+
+      <%= f.submit  "#{song.artist} - #{song.album} - #{song.title}" %>
+      <% end %>
+  <% end %>
+</div>
