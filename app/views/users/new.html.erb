@@ -1,5 +1,6 @@
 <div class="container">
 
+
          <div class="row">
           <div class="col-lg-6">
             <div class="well">
@@ -12,21 +13,21 @@
                   <div class="form-group">
                     <%= f.label :name, :input_html => { :class => "col-lg-2 control-label"} %>
                     <div class="col-lg-10">
-                    <%= f.text_field :name, :input_html => { :class => "form-control"} %>
+                    <%= f.text_field :name,:required => true, :input_html => { :class => "form-control"} %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
                     <div class="col-lg-10">
-                    <%= f.text_field :email, :input_html => { :class => "form-control"} %>
+                    <%= f.text_field :email, :required => true,:input_html => { :class => "form-control"} %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
                     <div class="col-lg-10">
-                    <%= f.password_field :password, :input_html => { :class => "form-control"} %>
+                    <%= f.password_field :password, :required => true,:input_html => { :class => "form-control"} %>
                     </div>
                   </div>
 
@@ -43,6 +44,4 @@
             </div>
           </div>
         </div>
-
-
 </div>
