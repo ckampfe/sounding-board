@@ -4,6 +4,9 @@ class SongsController < ApplicationController
     # puts "HELLO"
     # p params[:post]
     @post_data = params[:post]
+    # puts "POST DATA!!!"
+    # p params
+    # puts "END POST DATA!!!"
     @songs = []
     @res = rdio_search(params[:post][:song])[0..29]
     # puts res
@@ -25,6 +28,11 @@ class SongsController < ApplicationController
     # puts "HELLO"
     # p params[:post]
     @comment_data = params[:comment]
+
+    # puts "COMMENT DATA!!!"
+    # p params
+    # puts "END COMMENT DATA!!!"
+
     # @post_id = params[:post_id]
     @songs = []
     #HERE
