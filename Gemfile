@@ -10,6 +10,7 @@ gem 'pg'
 group :test do
   gem "shoulda-matchers"
   gem "capybara"
+  gem "rake"
 end
 
 group :development, :test do
