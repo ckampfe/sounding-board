@@ -1,13 +1,18 @@
 class CommentsController < ApplicationController
 
   def create
-    @song = get_song_from_rdio(params[:comment][:song])
-    @song.save
+   song_params = {
+      :short_url => params[:song_embed_url],
+      :title => params[:song_title],
+      :artist => params[:song_artist],
+      :album => params[:song_album]
+    }
+    @song = Song.create!(song_params) if params[:song_embed_url]
     @post = Post.find(params[:post_id])
 
     comment_params = {
-      :body => params[:comment][:body],
-      :song_id => @song.id,
+      :body => params[:comment_body],
+      :song_id => @song.id if @song,
       :user_id => current_user.id
     }
 
