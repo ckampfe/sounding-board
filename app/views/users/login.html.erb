@@ -9,7 +9,7 @@
         <fieldset>
           <legend>Login</legend>
 
-          <%= form_for :user, :url => { :action => "login" }, html: {class: "form-group"} do |f|%>
+          <%= form_for :user, :url => { :action => "login" }, html: { class: "form-group" } do |f| %>
 
             <div class="form-group">
               <div class="col-lg-2">
@@ -23,10 +23,10 @@
 
             <div class="form-group">
               <div class="col-lg-2">
-                <%= f.label :password, :input_html => { :class => "control-label"} %>
+                <%= f.label :password, :input_html => { :class => "control-label" } %>
               </div>
               <div class="col-lg-10">
-                <%= f.password_field :password, :input_html => { :class => "form-control"} %>
+                <%= f.password_field :password, :input_html => { :class => "form-control" } %>
               </div>
             </div>
 
