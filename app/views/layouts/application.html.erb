@@ -7,19 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div class="container
-  "
-  <div class="bs-docs-section clearfix">
+<div class="wrapper">
+  <div class="container">
         <div class="row">
           <div class="col-lg-12">
+
             <div class="page-header">
               <h1 id="navbar">Sounding Board</h1>
-            </div>
-            <div class="bs-example">
+            </div> <!-- class="page-header" -->
+
               <div class="navbar navbar-default">
 
-              <div class="navbar-header">
+                <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -47,18 +46,18 @@
                     <!-- </li> -->
                   </ul>
 
-                 <!--  <form class="navbar-form navbar-left">
+                  <!--  <form class="navbar-form navbar-left">
                     <input type="text" class="form-control col-lg-8" placeholder="Search">
                   </form> -->
 
-              <ul class="nav navbar-nav navbar-right">
+                  <ul class="nav navbar-nav navbar-right">
 
                   <% if session[:current_user_id] != nil %>
                    <li><a class='align-center title' href='/'>SB Home</a></li>
 
                     <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
-                     <li><a><%= f.submit "Logout" %></a></li>
-                     <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
+                    <li><a><%= f.submit "Logout" %></a></li>
+                    <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
                     <% end %>
 
                   <% else %>
@@ -78,22 +77,32 @@
                         <li><a href="#">Separated link</a></li>
                       </ul>
                     </li> -->
-                </ul><!-- end of class="nav navbar-nav navbar-right"   -->
+                  </ul><!-- end of class="nav navbar-nav navbar-right"   -->
                 </div><!-- /.nav-collapse -->
-              </div><!-- /.navbar -->
-
-
-
-
+              </div><!-- /.navbar default-->
 
 
 <%= yield %>
 
+        </div> <!-- end of div class="col-lg-12" -->
+      </div> <!-- end of div class="row" -->
+    </div> <!-- end of div class="container" -->
+    <div class="push"></div>
+  </div> <!-- end of div class="wrapper" -->
 
+  <div class="container">
+    <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="footer">
+        <p>Made by Team Delta. © 2013 Most Rights Reserved - TeamDelta.com.</p>
+        <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>, utilizing "Flatly" free theme from <a href="http://getbootstrap.com">Bootswatch</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>.
+        </div>
+      </div>
+    </div>
+    <footer>
+  </div> <!-- end of div class="container" -->
 </body>
 
-<div id="footer">
-  <section>© 2013 All Rights Reserved - TeamDelta.com</section>
-</div>
-</div>
+
 </html>

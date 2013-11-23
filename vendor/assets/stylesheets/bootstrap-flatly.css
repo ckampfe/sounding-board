@@ -41,6 +41,7 @@ html {
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 a {
@@ -7709,3 +7710,5 @@ input[type="color"]:focus,
 .affix {
   position: fixed;
 }
+
+

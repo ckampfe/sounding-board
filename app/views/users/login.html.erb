@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-  <div class="col-lg-6">
+
+    <div class="col-lg-3"></div><!-- left page spacing using columns-->
+
+    <div class="col-lg-6"><!-- main content space on page using columns-->
     <div class="well">
       <form class="bs-example form-horizontal">
         <fieldset>
@@ -9,16 +12,20 @@
           <%= form_for :user, :url => { :action => "login" }, html: {class: "form-group"} do |f|%>
 
             <div class="form-group">
-              <%= f.label :email, :input_html => { :class => "col-lg-2 control-label"} %>
+              <div class="col-lg-2">
+                <%= f.label :email, :input_html => { :class => "control-label"} %>
+              </div>
               <div class="col-lg-10">
-              <%= f.text_field :email, :input_html => { :class => "form-control"} %>
+                <%= f.text_field :email, :input_html => { :class => "form-control"} %>
               </div>
             </div>
 
             <div class="form-group">
-              <%= f.label :password, :input_html => { :class => "col-lg-2 control-label"} %>
+              <div class="col-lg-2">
+                <%= f.label :password, :input_html => { :class => "control-label"} %>
+              </div>
               <div class="col-lg-10">
-              <%= f.password_field :password, :input_html => { :class => "form-control"} %>
+                <%= f.password_field :password, :input_html => { :class => "form-control"} %>
               </div>
             </div>
 
@@ -32,7 +39,9 @@
 
         </fieldset>
       </form>
+    </div><!-- end of class="col-lg-6" -->
 
-    </div>
-  </div>
-</div>
+    <div class="col-lg-3"></div><!-- end of class="col-lg-3" -->
+
+  </div>  <!-- end of class="row"-->
+</div><!-- end of class="container"-->
