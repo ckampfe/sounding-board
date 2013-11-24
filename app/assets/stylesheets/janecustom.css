@@ -19,3 +19,19 @@ footer, .push {
   height: 100px; /* '.push' must be the same height as 'footer' */
 }
 
+#logout {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #18bc9c;
+
+}
