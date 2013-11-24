@@ -35,3 +35,20 @@ footer, .push {
   color: #18bc9c;
 
 }
+
+#post_song_embed {
+  width: 600px;
+}
+
+.my_motive {
+  font-size: 120%;
+}
+
+.emphasized_color {
+  color: #18bc9c;
+}
+
+img {
+  padding: 2px;
+  padding-left: 12px;
+}
