@@ -17,7 +17,7 @@
           <%= f.label :search %>
           <%= f.text_field :search %>
 
-          <%=f.submit "Search Posts"%>
+          <%=f.submit "Search Posts", :id => "search"%>
           <% end %>
         </div><!-- end of class="panel-body" -->
       </div><!-- end of class="panel panel-info" -->
@@ -72,19 +72,12 @@
 </div><!-- end of class="container"-->
 
   <script type="text/javascript">
-      $(document).ready(function() {
-        var pingAfter = 2000;
-        var refreshId = setInterval(function() {
-
-            $.get('/posts/refresh', function(response) {
-              $("#recent_log").html(response);
-            });
-        }, pingAfter);
+    $(function() {
+      (function refreshId() {
+        $.get('/posts/refresh', function(response) {
+          $("#recent_log").html(response);
+        })
+        setTimeout(refreshId, 10000);
+      })()
     });
-
   </script>
-
-
-
-
-

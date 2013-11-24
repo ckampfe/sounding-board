@@ -36,6 +36,7 @@ footer, .push {
 
 }
 
+<<<<<<< HEAD
 #post_song_embed {
   width: 600px;
 }
@@ -51,4 +52,9 @@ footer, .push {
 img {
   padding: 2px;
   padding-left: 12px;
+}
+
+embed {
+  width: 70%;
+
 }
