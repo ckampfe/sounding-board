@@ -1,25 +1,31 @@
 <div class="container">
-  <h1>Sounding Board</h1>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
 
-  <div class="post_display_section">
-    <%= render :partial => "show_post", :layout => false %>
-  </div>
+    <div class="post_display_section">
+      <%= render :partial => "show_post", :layout => false %>
+    </div>
 
-  <div class="comment_entry_section">
-    <%= form_for :comment, :url => {
-          :action => "search_for_use_by_comment",
-          :controller => "songs" }, :method => "get" do |f|%>
+    <div class="comment_entry_section">
+      <%= form_for :comment, :url => {
+            :action => "search_for_use_by_comment",
+            :controller => "songs" }, :method => "get" do |f|%>
 
-      <input type="hidden" value="<%= @post.id %>" name="post_id">
-      <%= f.label "Comment" %>: <br>
-      <%= f.text_area :body %><br>
+        <input type="hidden" value="<%= @post.id %>" name="post_id">
+        <%= f.label "Comment" %>: <br>
+        <%= f.text_area :body, :cols => 45, :rows => 6 %><br>
 
-      <%= f.label "Song" %>:
-      <%= f.text_field :song %>
+        <%= f.label "Suggest Another Song" %>:<br>
+        <%= f.text_field :song %><br><br>
 
-      <%= f.submit %>
+        <%= f.submit "Save Comment", :class => "btn btn-info" %>
 
-    <% end %>
-  </div>
+      <% end %>
+      <br>
+    </div>
 
+    </div> <!-- end of col -->
+    <div class="col-lg-1"></div>
+  </div> <!-- end of row -->
 </div>

@@ -55,7 +55,8 @@ footer, .push {
 }
 
 .emphasized_color {
-  color: #18bc9c;
+  color: #3498db;
+  font-style: italic;
 }
 
 img {
@@ -70,4 +71,8 @@ embed {
 
 #post_motivation {
 
+}
+
+.song-title {
+  color: #3498db;
 }
