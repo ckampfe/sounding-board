@@ -14,9 +14,9 @@
       <div class="col-lg-12">
         <div class="bs-example">
           <div class="navbar navbar-default">
-           <!--  <div class="navbar-header"> -->
-              <a class="navbar-header" href='/'><img src="/assets/possible_logo3.png" alt="Sounding Board" height="58"></a>
-            <!-- </div> -->
+            <div class="navbar-header">
+              <a  href='/'><img src="/assets/possible_logo3.png" alt="Sounding Board" height="58"></a>
+            </div>
 
             <div class="navbar-collapse collapse navbar-responsive-collapse">
               <% if session[:current_user_id] != nil %>
@@ -34,13 +34,18 @@
                   <li><%= link_to("Sign Up", new_user_path) %></li>
                 </ul><!-- end of class="nav navbar-nav navbar-right" -->
               <% end %>
+
             </div><!-- /.nav-collapse -->
           </div><!-- /.navbar default-->
+        </div><!-- end of class="bs-example" -->
+        </div> <!-- end of div class="col-lg-12" -->
+      </div> <!-- end of div class="row" -->
+
+
 
 <%= yield %>
 
-        </div> <!-- end of div class="col-lg-12" -->
-      </div> <!-- end of div class="row" -->
+
     </div> <!-- end of div class="container" -->
     <div class="push"></div>
   </div> <!-- end of div class="wrapper" -->
