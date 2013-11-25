@@ -3,7 +3,10 @@
 
     <h4><%= @song.title %></h4>
 
-    <p><strong><%= @post.motivation if @post.motivation %></strong></p>
+    <% if @post.motivation %>
+    <p class="my_motive">My motivation for sharing <span class="emphasized_color"><%= @song.title %> </span>is: <%= @post.motivation %></p>
+    <% end %>
+
     <br>
     <div id="#post_song_embed"><embed src ="<%= @song.short_url %>"></div>
     <br>
