@@ -7,29 +7,60 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class = "nav_bar">
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bs-example">
+          <div class="navbar navbar-default">
+            <div class="navbar-header">
+              <a  href='/'><img src="/assets/possible_logo3.png" alt="Sounding Board" height="58"></a>
+            </div>
+
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+              <% if session[:current_user_id] != nil %>
+                <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= f.submit "Logout", :id => "logout", :class => "btn btn-primary" %></li>
+                  <li><%= link_to("Create Post", posts_new_path) %></li>
+                  <li><%= link_to("My Post", my_posts_path) %> </li>
+                </ul><!-- end of class="nav navbar-nav navbar-right" -->
+                <% end %>
+
+              <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to("Login", login_path) %></li>
+                  <li><%= link_to("Sign Up", new_user_path) %></li>
+                </ul><!-- end of class="nav navbar-nav navbar-right" -->
+              <% end %>
+
+            </div><!-- /.nav-collapse -->
+          </div><!-- /.navbar default-->
+        </div><!-- end of class="bs-example" -->
+        </div> <!-- end of div class="col-lg-12" -->
+      </div> <!-- end of div class="row" -->
 
 
-    <% if session[:current_user_id] != nil %>
-      <li><a class='align-center title' href='/'>Sounding Board</a></li>
-      <%= form_for :user, :url => { :action => "logout", :controller => "users" } do |f| %>
-      <li><a><%= f.submit "Logout", :id=> "logout" %></a></li>
-      <li><a class='align-right nav-link' <%= link_to("Create Post", posts_new_path) %> ></a></li>
-      <li><a class='align-right nav-link' <%= link_to("My Post", my_posts_path) %> ></a></li>
-      <% end %>
-    <% else %>
-    <li><a class='align-center title' href='/'>Sounding Board</a></li>
-      <li><a class='align-right nav-link' <%= link_to("Login", login_path) %> ></a></li>
-     <li><a class='align-right nav-link'<%= link_to("Sign Up", new_user_path) %> ></a></li>
-    <% end %>
-  </div>
 
 <%= yield %>
 
 
-</body>
+    </div> <!-- end of div class="container" -->
+    <div class="push"></div>
+  </div> <!-- end of div class="wrapper" -->
 
-<div id="footer">
-  <section>© 2013 All Rights Reserved - TeamDelta.com</section>
-</div>
+  <div class="container">
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="footer">
+            Made by Team Delta. © 2013 Most Rights Reserved - TeamDelta.com. &nbsp&nbsp<a href="https://github.com/ckampfe/sounding-board">Fork us on Github</a>
+          </div>
+        </div>
+      </div>
+    <footer>
+  </div> <!-- end of div class="container" -->
+
+</body>
 </html>

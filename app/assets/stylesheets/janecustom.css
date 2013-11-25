@@ -1,0 +1,72 @@
+/* Jane added these styles, taken from Sticky Footer by Ryan Fait
+http://ryanfait.com/ */
+
+
+/* Wrapper for page content to push down footer */
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+
+footer, .push {
+  height: 100px; /* '.push' must be the same height as 'footer' */
+}
+
+#logout {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #18bc9c;
+}
+
+.btn-block {
+  color: #2c3e50;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+
+.btn-block:hover {
+  color: #18bc9c;
+}
+
+#post_song_embed {
+  width: 600px;
+}
+
+.my_motive {
+  font-size: 120%;
+}
+
+.emphasized_color {
+  color: #18bc9c;
+}
+
+img {
+  padding: 2px;
+  padding-left: 12px;
+}
+
+embed {
+  width: 50%;
+}
+
+#post_motivation {
+
+}

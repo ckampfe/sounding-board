@@ -12,7 +12,7 @@
         <input type="hidden" value="<%= song[:artist] %>" name="song_artist">
         <input type="hidden" value="<%= song[:album] %>" name="song_album">
 
-        <%= f.submit  "#{song.artist} - #{song.album} - #{song.title}" %>
+        <%= f.submit  "#{song.artist} - #{song.album} - #{song.title}", :class => "btn btn-block" %>
         <% end %>
     <% end %>
   <% end %>

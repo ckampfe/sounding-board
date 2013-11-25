@@ -1,19 +1,54 @@
 <div class="container">
 
-  <%= form_for :user, :url => { :action => "create" } do |f|%>
-    <%= f.label :name %>:
-    <%= f.text_field :name, :required => true%>
-    <br>
 
-    <%= f.label :email %>:
-    <%= f.email_field :email, :required => true  %>
-    <br>
+         <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <div class="well">
 
-    <%= f.label :password %>:
-    <%= f.password_field :password, :required => true %>
-    <br>
+                <fieldset>
+                  <legend>Sign Up</legend>
 
-    <%= f.submit "Sign Up!", :id=> "signup" %>
-  <% end %>
+                  <%= form_for :user, :url => { :action => "create" }, html: { class: "bs-example form-horizontal"} do |f| %>
 
+                  <div class="form-group">
+                    <div class="col-lg-2">
+                    <%= f.label :name, :input_html => { :class => "col-lg-2 control-label" } %>
+                  </div>
+                    <div class="col-lg-10">
+                    <%= f.text_field :name, :required => true, :input_html => { :class => "form-control" } %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-lg-2">
+                    <%= f.label :email, :input_html => { :class => "col-lg-2 control-label" } %>
+                  </div>
+                    <div class="col-lg-10">
+                    <%= f.text_field :email, :required => true, :input_html => { :class => "form-control" } %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-lg-2">
+                    <%= f.label :password, :input_html => { :class => "col-lg-2 control-label" } %>
+                  </div>
+                    <div class="col-lg-10">
+                    <%= f.password_field :password, :required => true,:input_html => { :class => "form-control" } %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <%= f.submit "Sign Up!", :id => "signup", :class => "btn btn-info" %>
+                    </div>
+                  </div>
+
+                <% end %>
+
+                </fieldset>
+
+            </div>
+          </div>
+          <div class="col-lg-3"></div>
+        </div>
 </div>
