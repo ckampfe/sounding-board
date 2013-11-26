@@ -6,7 +6,7 @@ SoundingBoard::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  # config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -19,6 +19,8 @@ SoundingBoard::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.cache_store = :mem_cache_store
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

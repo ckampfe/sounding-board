@@ -6,6 +6,8 @@ gem 'rails', '3.2.15'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'dalli'
+gem 'memcache-client'
 
 group :test do
   gem "shoulda-matchers"

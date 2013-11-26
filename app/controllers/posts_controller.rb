@@ -76,8 +76,14 @@ class PostsController < ApplicationController
   end
 
   def refresh
+
+    post = Post.all_cached
+    p '----------Cache Yo---------'
+    p Rails.cache
+    p '--------------------------'
     puts "refresh"
-    @posts = Post.last(5).reverse
+    @posts = post.last(5).reverse
+
     if request.xhr?
       render :_latest_posts, :layout => nil
     end
