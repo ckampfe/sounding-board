@@ -86,7 +86,11 @@ class PostsController < ApplicationController
   def search # find posts
     @query = params[:post][:search]
     query_ar = "%#{@query}%"
-    @posts = Post.where("title like ? or motivation like ?", query_ar, query_ar)
+
+    @posts = Rails.cache.fetch(query_ar, :expires_in => 1.minutes) do
+      Post.where("title like ? or motivation like ?", query_ar, query_ar).all
+    end
+
     render :results
   end
 
