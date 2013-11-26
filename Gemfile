@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'oauth'
+gem 'memcache-client'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
