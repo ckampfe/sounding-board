@@ -1,40 +1,65 @@
-<html>
-<head>  
-  <script type="text/javascript">  
-      $(document).ready(function() {
-        var pingAfter = 2000;  
-        var refreshId = setInterval(function() {
-
-            $.get('/posts/refresh', function(response) {
-              $("#recent_log").html(response);
-            });
-        }, pingAfter);
-    });
-  </script>  
-</head>  
-
 <div class="container">
-<h2> Share your latest favorites for others to hear</h2>
-<%= form_for :post, :url => { :action => "search", :controller => 'posts'}, :html => { :method => "get" } do |f| %>
-<%= f.label :search %>
-<%= f.text_field :search %> 
-<br>
-<%=f.submit "Search Posts", :id => "search"%>
-<% end %> 
+  <div class="row">
+    <div class="col-lg-2"></div><!-- left page spacing using columns-->
 
-<h2> Search Posts</h2>
+    <div class="col-lg-8"><!-- main content space on page using columns-->
+      <div class="page-header">
+        <h2 id="forms">Share your latest favorites for others to hear</h2>
+      </div>
 
-<br>
-<br>
-<h4>Latest Post Feed:</h4>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"> Search Posts</h3>
+        </div><!-- end of class="panel-heading" -->
 
-<div id="recent_log"> 
-  
-</div>
-<h2> Search By Category</h2>
+        <div class="panel-body">
+          <%= form_for :post, :url => { :action => "search", :controller => 'posts'}, :html => { :method => "get" } do |f| %>
+          <%= f.label :search %>
+          <%= f.text_field :search %>
+
+          <%=f.submit "Search Posts", :id => "search", :class => "btn btn-info"%>
+          <% end %>
+        </div><!-- end of class="panel-body" -->
+      </div><!-- end of class="panel panel-info" -->
+
+    </div><!-- end of "col-lg-8"-->
+
+    <div class="col-lg-2"></div><!-- right hand spacing-->
+
+  </div><!-- end of class="row"-->
+
+  <div class="row">
+    <div class="col-lg-2">
+    </div>
+
+    <div class="col-lg-8">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Explore the latest posts in the feed:</h3>
+        </div><!-- end of class="panel-heading" -->
+
+        <div class="panel-body">
+          <div id="recent_log">
+          </div>
+        </div><!-- end of class="panel-body" -->
+      </div><!-- end of class="panel panel-warning" -->
+    </div><!-- end of class="col-lg-8" -->
+
+    <div class="col-lg-2">
+    </div>
+  </div>  <!-- end of class="row"-->
 
 
-</div>
 
-</html>
+</div><!-- end of class="container"-->
 
+  <script type="text/javascript">
+    $(function() {
+      (function refreshId() {
+        $.get('/posts/refresh', function(response) {
+          $("#recent_log").html(response);
+        })
+        setTimeout(refreshId, 10000);
+      })()
+    });
+  </script>
