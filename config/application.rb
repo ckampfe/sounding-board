@@ -10,6 +10,7 @@ require "sprockets/railtie"
 
 require 'oauth'
 require "yaml"
+require 'memcache'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -68,5 +69,6 @@ module SoundingBoard
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
+    config.cache_store = :mem_cache_store
   end
 end
